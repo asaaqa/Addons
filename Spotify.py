@@ -16,7 +16,7 @@ import os
 from uuid import uuid4
 
 from telethon.tl.types import DocumentAttributeAudio
-from Ayra.fns.tools import metadata
+from Kazu.fns.tools import metadata
 
 from . import *
 
@@ -27,7 +27,7 @@ except:
     os.system("pip install spotdl")
 
 TEMP_DIR = "resources/spotify"
-AYRA_TXT = "**Mengunggah {0}/{1}** \n»» `{2}!`"
+KAZU_TXT = "**Mengunggah {0}/{1}** \n»» `{2}!`"
 
 
 def list_dir(folder):
