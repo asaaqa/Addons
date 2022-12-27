@@ -18,7 +18,7 @@
 """
 import os
 
-from Ayra import KazuConfig
+from Kazu import KazuConfig
 
 try:
     import cv2
