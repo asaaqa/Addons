@@ -5,47 +5,47 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
 """
-◈ Perintah Tersedia
+â—ˆ Perintah Tersedia
 
-• `{i}kickme` : Leaves the group.
+â€¢ `{i}kickme` : Leaves the group.
 
-• `{i}date` : Show Calender.
+â€¢ `{i}date` : Show Calender.
 
-• `{i}listreserved`
+â€¢ `{i}listreserved`
     List all usernames (channels/groups) you own.
 
-• `{i}stats` : See your profile stats.
+â€¢ `{i}stats` : See your profile stats.
 
-• `{i}paste` - `Include long text / Reply to text file.`
+â€¢ `{i}paste` - `Include long text / Reply to text file.`
 
-• `{i}info <username/userid/chatid>`
+â€¢ `{i}info <username/userid/chatid>`
     Reply to someone's msg.
 
-• `{i}invite <username/userid>`
+â€¢ `{i}invite <username/userid>`
     Add user to the chat.
 
-• `{i}rmbg <reply to pic>`
+â€¢ `{i}rmbg <reply to pic>`
     Remove background from that picture.
 
-• `{i}tg <reply to media/text>`
+â€¢ `{i}tg <reply to media/text>`
     Upload media/text to telegraph.
 
-• `{i}json <reply to msg>`
+â€¢ `{i}json <reply to msg>`
     Get the json encoding of the message.
 
-• `{i}suggest <reply to message> or <poll title>`
+â€¢ `{i}suggest <reply to message> or <poll title>`
     Create a Yes/No poll for the replied suggestion.
 
-• `{i}ipinfo <ipAddress>` : Get info about that IP address.
+â€¢ `{i}ipinfo <ipAddress>` : Get info about that IP address.
 
-• `{i}cpy <reply to message>`
+â€¢ `{i}cpy <reply to message>`
    Copy the replied message, with formatting. Expires in 24hrs.
-• `{i}pst`
+â€¢ `{i}pst`
    Paste the copied message, with formatting.
 
-• `{i}thumb <reply file>` : Download the thumbnail of the replied file.
+â€¢ `{i}thumb <reply file>` : Download the thumbnail of the replied file.
 
-• `{i}getmsg <message link>`
+â€¢ `{i}getmsg <message link>`
   Get messages from chats with forward/copy restrictions.
 """
 
@@ -62,9 +62,9 @@ try:
 except ImportError:
     Image = None
 
-from kazu._misc._assistant import asst_cmd
-from kazu.dB.gban_mute_db import is_gbanned
-from kazu.fns.tools import get_chat_and_msgid
+from Kazu._misc._assistant import asst_cmd
+from Kazu.dB.gban_mute_db import is_gbanned
+from Kazu.fns.tools import get_chat_and_msgid
 
 try:
     from telegraph import upload_file as uf
@@ -200,18 +200,18 @@ async def stats(
     except BaseException:
         sp_count = 0
     full_name = inline_mention(event.client.me)
-    response = f"🔸 **Stats for {full_name}** \n\n"
+    response = f"ðŸ”¸ **Stats for {full_name}** \n\n"
     response += f"**Private Chats:** {private_chats} \n"
-    response += f"**  •• **`Users: {private_chats - bots}` \n"
-    response += f"**  •• **`Bots: {bots}` \n"
+    response += f"**  â€¢â€¢ **`Users: {private_chats - bots}` \n"
+    response += f"**  â€¢â€¢ **`Bots: {bots}` \n"
     response += f"**Groups:** {groups} \n"
     response += f"**Channels:** {broadcast_channels} \n"
     response += f"**Admin in Groups:** {admin_in_groups} \n"
-    response += f"**  •• **`Creator: {creator_in_groups}` \n"
-    response += f"**  •• **`Admin Rights: {admin_in_groups - creator_in_groups}` \n"
+    response += f"**  â€¢â€¢ **`Creator: {creator_in_groups}` \n"
+    response += f"**  â€¢â€¢ **`Admin Rights: {admin_in_groups - creator_in_groups}` \n"
     response += f"**Admin in Channels:** {admin_in_broadcast_channels} \n"
-    response += f"**  •• **`Creator: {creator_in_channels}` \n"
-    response += f"**  •• **`Admin Rights: {admin_in_broadcast_channels - creator_in_channels}` \n"
+    response += f"**  â€¢â€¢ **`Creator: {creator_in_channels}` \n"
+    response += f"**  â€¢â€¢ **`Admin Rights: {admin_in_broadcast_channels - creator_in_channels}` \n"
     response += f"**Unread:** {unread} \n"
     response += f"**Unread Mentions:** {unread_mentions} \n"
     response += f"**Blocked Users:** {ct}\n"
@@ -226,7 +226,7 @@ async def _(event):
         input_str = event.text.split(maxsplit=1)[1]
     except IndexError:
         input_str = None
-    xx = await event.eor("` 《 Pasting... 》 `")
+    xx = await event.eor("` ã€Š Pasting... ã€‹ `")
     downloaded_file_name = None
     if input_str:
         message = input_str
@@ -254,7 +254,7 @@ async def _(event):
     link = f"https://spaceb.in/{key}"
     raw = f"https://spaceb.in/api/v1/documents/{key}/raw"
     reply_text = (
-        f"• **Pasted to SpaceBin :** [Space]({link})\n• **Raw Url :** : [Raw]({raw})"
+        f"â€¢ **Pasted to SpaceBin :** [Space]({link})\nâ€¢ **Raw Url :** : [Raw]({raw})"
     )
     try:
         if event.client._bot:
@@ -292,7 +292,7 @@ async def _(event):
             peer = get_peer_id(_)
             photo, capt = await get_chat_info(_, event)
             if is_gbanned(peer):
-                capt += "\n•<b> Is Gbanned:</b> <code>True</code>"
+                capt += "\nâ€¢<b> Is Gbanned:</b> <code>True</code>"
             if not photo:
                 return await xx.eor(capt, parse_mode="html")
             await event.client.send_message(
@@ -326,19 +326,19 @@ async def _(event):
         dc_id = user.photo.dc_id
     else:
         dc_id = "Need a Profile Picture to check this"
-    caption = """<b>Exᴛʀᴀᴄᴛᴇᴅ Dᴀᴛᴀ Fʀᴏᴍ Tᴇʟᴇɢʀᴀᴍ's Dᴀᴛᴀʙᴀsᴇ<b>
-<b>••Tᴇʟᴇɢʀᴀᴍ ID</b>: <code>{}</code>
-<b>••Pᴇʀᴍᴀɴᴇɴᴛ Lɪɴᴋ</b>: <a href='tg://user?id={}'>Click Here</a>
-<b>••Fɪʀsᴛ Nᴀᴍᴇ</b>: <code>{}</code>
-<b>••Sᴇᴄᴏɴᴅ Nᴀᴍᴇ</b>: <code>{}</code>
-<b>••Bɪᴏ</b>: <code>{}</code>
-<b>••Dᴄ ID</b>: <code>{}</code>
-<b>••Nᴏ. Oғ PғPs</b> : <code>{}</code>
-<b>••Is Rᴇsᴛʀɪᴄᴛᴇᴅ</b>: <code>{}</code>
-<b>••Vᴇʀɪғɪᴇᴅ</b>: <code>{}</code>
-<b>••Is Pʀᴇᴍɪᴜᴍ</b>: <code>{}</code>
-<b>••Is A Bᴏᴛ</b>: <code>{}</code>
-<b>••Gʀᴏᴜᴘs Iɴ Cᴏᴍᴍᴏɴ</b>: <code>{}</code>
+    caption = """<b>Exá´›Ê€á´€á´„á´›á´‡á´… Dá´€á´›á´€ FÊ€á´á´ Tá´‡ÊŸá´‡É¢Ê€á´€á´'s Dá´€á´›á´€Ê™á´€sá´‡<b>
+<b>â€¢â€¢Tá´‡ÊŸá´‡É¢Ê€á´€á´ ID</b>: <code>{}</code>
+<b>â€¢â€¢Pá´‡Ê€á´á´€É´á´‡É´á´› LÉªÉ´á´‹</b>: <a href='tg://user?id={}'>Click Here</a>
+<b>â€¢â€¢FÉªÊ€sá´› Ná´€á´á´‡</b>: <code>{}</code>
+<b>â€¢â€¢Sá´‡á´„á´É´á´… Ná´€á´á´‡</b>: <code>{}</code>
+<b>â€¢â€¢BÉªá´</b>: <code>{}</code>
+<b>â€¢â€¢Dá´„ ID</b>: <code>{}</code>
+<b>â€¢â€¢Ná´. OÒ“ PÒ“Ps</b> : <code>{}</code>
+<b>â€¢â€¢Is Rá´‡sá´›Ê€Éªá´„á´›á´‡á´…</b>: <code>{}</code>
+<b>â€¢â€¢Vá´‡Ê€ÉªÒ“Éªá´‡á´…</b>: <code>{}</code>
+<b>â€¢â€¢Is PÊ€á´‡á´Éªá´œá´</b>: <code>{}</code>
+<b>â€¢â€¢Is A Bá´á´›</b>: <code>{}</code>
+<b>â€¢â€¢GÊ€á´á´œá´˜s IÉ´ Cá´á´á´á´É´</b>: <code>{}</code>
 """.format(
         user_id,
         user_id,
@@ -354,8 +354,8 @@ async def _(event):
         common_chats,
     )
     if chk := is_gbanned(user_id):
-        caption += f"""<b>••Gʟᴏʙᴀʟʟʏ Bᴀɴɴᴇᴅ</b>: <code>True</code>
-<b>••Rᴇᴀsᴏɴ</b>: <code>{chk}</code>"""
+        caption += f"""<b>â€¢â€¢GÊŸá´Ê™á´€ÊŸÊŸÊ Bá´€É´É´á´‡á´…</b>: <code>True</code>
+<b>â€¢â€¢Rá´‡á´€sá´É´</b>: <code>{chk}</code>"""
     await event.client.send_message(
         event.chat_id,
         caption,
@@ -448,7 +448,7 @@ async def abs_rmbg(event):
     zz = Image.open(out)
     if zz.mode != "RGB":
         zz.convert("RGB")
-    wbn = check_filename("ayra-rmbg.webp")
+    wbn = check_filename("kazu-rmbg.webp")
     zz.save(wbn, "webp")
     await event.client.send_file(
         event.chat_id,
@@ -467,7 +467,7 @@ async def abs_rmbg(event):
 )
 async def telegraphcmd(event):
     xx = await event.eor(get_string("com_1"))
-    match = event.pattern_match.group(1).strip() or "Ayra"
+    match = event.pattern_match.group(1).strip() or "Kazu"
     reply = await event.get_reply_message()
     if not reply:
         return await xx.eor("`Balas Ke Pesan.`")
@@ -524,7 +524,7 @@ async def _(event):
         msg = json_parser(msg.to_json(), indent=1)
     if len(msg) > 4096:
         with io.BytesIO(str.encode(msg)) as out_file:
-            out_file.name = "json-ayra.txt"
+            out_file.name = "json-kazu.txt"
             await event.client.send_file(
                 event.chat_id,
                 out_file,
