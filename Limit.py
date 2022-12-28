@@ -28,7 +28,7 @@ async def demn(kazu):
             )
             await conv.send_message("/start")
             response = await response
-            await ayra.client.send_read_acknowledge(chat)
+            await kazu.client.send_read_acknowledge(chat)
         except YouBlockedUserError:
             await msg.edit("Silakan Buka Blokir @SpamBot ")
             return
