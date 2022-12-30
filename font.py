@@ -348,7 +348,11 @@ rusifont = [
     "з",
 ]
 
-from . import*
+
+
+from . import *
+
+
 
 @kazu_cmd(pattern="weeb ?(.*)")
 async def weebify(ult):
