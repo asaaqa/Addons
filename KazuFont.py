@@ -1,3 +1,4 @@
+# Ported @disinikazu
 # Ayiin - Userbot
 # Copyright (C) 2022-2023 @AyiinXd
 #
@@ -13,6 +14,14 @@
 #            Jangan Hapus Credit Ngentod
 # ========================×========================
 
+"""
+✘ Commands Available -
+"KazuFont": f"**Plugin : **`kazufont`\
+        \n\n  »  **Perintah :** `{cmd}font` `<nama font>` `<teks/balas ke pesan>`\
+        \n  »  **Kegunaan : **Membuat Text dengan Fonts Style.\
+        \n\n  »  **Perintah :** `{cmd}lf`\
+        \n  »  **Kegunaan : **Untuk Melihat Daftar Font.\
+"""
 
 from . import *
 
