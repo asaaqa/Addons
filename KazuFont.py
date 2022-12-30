@@ -570,7 +570,7 @@ async def _(ayiin):
         yins = gen_font(text, _bolditalic)
     await eor(ayiin)
     await ayiin.reply("**𝙂𝙚𝙣𝙚𝙧𝙖𝙩𝙚𝙙 𝘽𝙮 :** ✧ 𝙺𝙰𝚉𝚄-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧")
-    if not yins:
+    if not ayiin:
         await ayiin.reply("Ketik Yang Bener Bego!!!")
 
 
@@ -597,7 +597,7 @@ async def fonts(yins):
 
 CMD_HELP.update(
     {
-        "yinsfont": f"**Plugin : **`kazufont`\
+        "KazuFont": f"**Plugin : **`kazufont`\
         \n\n  »  **Perintah :** `{cmd}font` `<nama font>` `<teks/balas ke pesan>`\
         \n  »  **Kegunaan : **Membuat Text dengan Fonts Style.\
         \n\n  »  **Perintah :** `{cmd}lf`\
