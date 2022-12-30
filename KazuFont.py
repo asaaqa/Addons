@@ -568,7 +568,7 @@ async def _(ayiin):
         yins = gen_font(text, _bold)
     elif font == "bolditalic":
         yins = gen_font(text, _bolditalic)
-    await eor(ayiin, yins)
+    await eor(ayiin)
     await ayiin.reply("**𝙂𝙚𝙣𝙚𝙧𝙖𝙩𝙚𝙙 𝘽𝙮 :** ✧ 𝙺𝙰𝚉𝚄-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧")
     if not yins:
         await ayiin.reply("Ketik Yang Bener Bego!!!")
