@@ -16,7 +16,7 @@
 
 """
 ✘ Perintah yang Tersedia -
-"KazuFont": f"**Plugin : **`kazufont`\
+"Kazu": f"**Modul : **`ᴋᴀᴢᴜ ғᴏɴᴛ`\
         \n\n  »  **Perintah :** `{i}font` `<nama font>` `<teks/balas ke pesan>`\
         \n  »  **Kegunaan : **Membuat Text dengan Fonts Style.\
         \n\n  »  **Perintah :** `{i}lf`\
