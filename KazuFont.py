@@ -17,9 +17,9 @@
 """
 ✘ Commands Available -
 "KazuFont": f"**Plugin : **`kazufont`\
-        \n\n  »  **Perintah :** `{cmd}font` `<nama font>` `<teks/balas ke pesan>`\
+        \n\n  »  **Perintah :** `{i}font` `<nama font>` `<teks/balas ke pesan>`\
         \n  »  **Kegunaan : **Membuat Text dengan Fonts Style.\
-        \n\n  »  **Perintah :** `{cmd}lf`\
+        \n\n  »  **Perintah :** `{i}lf`\
         \n  »  **Kegunaan : **Untuk Melihat Daftar Font.\
 """
 
