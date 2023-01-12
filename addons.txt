@@ -16,3 +16,4 @@ speechrecognition
 speedtest-cli
 textblob
 wikipedia
+string
