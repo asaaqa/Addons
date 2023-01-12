@@ -37,6 +37,7 @@
      untuk teks | ketik {i} `font` Untuk Melihat Daftar Font
 """
 
+import string
 from . import HNDLR, eod, kazu_cmd
 
 
