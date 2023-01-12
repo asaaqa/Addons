@@ -1,9 +1,9 @@
-# Ayra - UserBot
+# kazu - UserBot
 # Copyright (C) 2021-2022 senpai80
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/senpai80/kazu/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/senpai80/kazu/blob/main/LICENSE/>.
 """
 ◈ Perintah Tersedia
 
@@ -16,7 +16,7 @@ import os
 from uuid import uuid4
 
 from telethon.tl.types import DocumentAttributeAudio
-from Kazu.fns.tools import metadata
+from kazu.fns.tools import metadata
 
 from . import *
 
@@ -27,7 +27,7 @@ except:
     os.system("pip install spotdl")
 
 TEMP_DIR = "resources/spotify"
-KAZU_TXT = "**Mengunggah {0}/{1}** \n»» `{2}!`"
+kazu_TXT = "**Mengunggah {0}/{1}** \n»» `{2}!`"
 
 
 def list_dir(folder):

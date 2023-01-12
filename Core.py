@@ -1,9 +1,9 @@
-# kazu - UserBot
+# Ayra - UserBot
 # Copyright (C) 2021-2022 senpai80
 #
-# This file is a part of < https://github.com/senpai80/kazu/ >
+# This file is a part of < https://github.com/senpai80/Ayra/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/kazu/blob/main/LICENSE/>.
+# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
 
 
 """
@@ -118,8 +118,8 @@ async def get_the_addons_lol(event):
     plug = await async_searcher(thelink)
     fil = f"addons/{name_of_it}"
     await xx.edit("Packing the codes...")
-    with open(fil, "w", encoding="utf-8") as kazu:
-        kazu.write(plug)
+    with open(fil, "w", encoding="utf-8") as ayra:
+        ayra.write(plug)
     await xx.edit("Packed. Now loading the plugin..")
     shortname = name_of_it.split(".")[0]
     try:

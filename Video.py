@@ -1,9 +1,9 @@
-# Ayra - UserBot
+# kazu - UserBot
 # Copyright (C) 2021-2022 senpai80
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/senpai80/kazu/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/senpai80/kazu/blob/main/LICENSE/>.
 """
 ◈ Perintah Tersedia
 
@@ -20,7 +20,7 @@
 import glob
 import os
 
-from Kazu.fns.tools import set_attributes
+from kazu.fns.tools import set_attributes
 
 from . import (
     KazuConfig,

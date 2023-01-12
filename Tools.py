@@ -1,9 +1,9 @@
-# Ayra - UserBot
+# kazu - UserBot
 # Copyright (C) 2021-2022 senpai80
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/senpai80/kazu/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/senpai80/kazu/blob/main/LICENSE/>.
 """
 ◈ Perintah Tersedia
 
@@ -57,7 +57,7 @@ from telethon.tl.types import (
     DocumentAttributeVideo,
 )
 
-from Kazu.fns.tools import metadata, translate
+from kazu.fns.tools import metadata, translate
 
 from . import (
     HNDLR,
@@ -105,7 +105,7 @@ async def _(event):
     manager=True,
 )
 async def _(event):
-    ayra = event
+    kazu = event
     match = event.pattern_match.group(1).strip()
     if match:
         try:
@@ -123,22 +123,22 @@ async def _(event):
         bot_api_file_id = event.file.id
         data += f"\n**Bot API File ID:**  `{bot_api_file_id}`"
     data += f"\n**Msg ID:**  `{event.id}`"
-    await ayra.eor(data)
+    await kazu.eor(data)
 
 
 @kazu_cmd(pattern="bots( (.*)|$)", groups_only=True, manager=True)
-async def _(ayra):
+async def _(kazu):
     mentions = "• **Bot dalam Obrolan ini**: \n"
-    if input_str := ayra.pattern_match.group(1).strip():
+    if input_str := kazu.pattern_match.group(1).strip():
         mentions = f"• **Bot masuk **{input_str}: \n"
         try:
-            chat = await ayra.client.parse_id(input_str)
+            chat = await kazu.client.parse_id(input_str)
         except Exception as e:
-            return await ayra.eor(str(e))
+            return await kazu.eor(str(e))
     else:
-        chat = ayra.chat_id
+        chat = kazu.chat_id
     try:
-        async for x in ayra.client.iter_participants(
+        async for x in kazu.client.iter_participants(
             chat,
             filter=ChannelParticipantsBots,
         ):
@@ -148,16 +148,16 @@ async def _(ayra):
                 mentions += f"\n• {inline_mention(x)} `{x.id}`"
     except Exception as e:
         mentions += f" {str(e)}" + "\n"
-    await ayra.eor(mentions)
+    await kazu.eor(mentions)
 
 
 @kazu_cmd(
     pattern="hl( (.*)|$)",
 )
-async def _(ayra):
-    input_ = ayra.pattern_match.group(1).strip()
+async def _(kazu):
+    input_ = kazu.pattern_match.group(1).strip()
     if not input_:
-        return await ayra.eor("`Masukkan beberapa tautan`", time=5)
+        return await kazu.eor("`Masukkan beberapa tautan`", time=5)
     text = None
     if len(input_.split()) > 1:
         spli_ = input_.split()
@@ -165,7 +165,7 @@ async def _(ayra):
         text = spli_[1]
     if not text:
         text = "ㅤㅤㅤㅤㅤㅤㅤ"
-    await ayra.eor(f"[{text}]({input_})", link_preview=False)
+    await kazu.eor(f"[{text}]({input_})", link_preview=False)
 
 
 @kazu_cmd(
@@ -436,5 +436,5 @@ async def magic(event):
     if not response.get("status"):
         return await event.eor(f'**ERROR :** `{response["message"]}`')
     await event.eor(
-        f"• **Kazu Tiny**\n• Given Url : {url}\n• Shorten Url : {data['response']['tinyUrl']}"
+        f"• **kazu Tiny**\n• Given Url : {url}\n• Shorten Url : {data['response']['tinyUrl']}"
     )

@@ -1,9 +1,4 @@
-# Kazu - UserBot
-# Copyright (C) 2021-2022 senpai80
-#
-# This file is a part of < https://github.com/senpai80/Kazu/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Kazu/blob/main/LICENSE/>.
+
 """
 ◈ Perintah Tersedia
 
@@ -143,7 +138,7 @@ async def soon_(e):
         msg,
         file=photo,
         force_document=True,
-        attributes=[DocumentAttributeFilename("InstaKazu.jpg")],
+        attributes=[DocumentAttributeFilename("Instakazu.jpg")],
     )
     await ew.delete()
 
@@ -159,9 +154,9 @@ async def insta_karbon(event):
     if not (replied and (replied.photo or replied.video)):
         return await event.eor("`Membalas Foto Atau Video...`")
     caption = (
-        event.pattern_match.group(2) + "\n\n• By #Kazu"
-        or replied.message + "\n\n• By #Kazu"
-        or "Upload Telegram Ke Instagram\nBy #Kazu.."
+        event.pattern_match.group(2) + "\n\n• By #kazu"
+        or replied.message + "\n\n• By #kazu"
+        or "Upload Telegram Ke Instagram\nBy #kazu.."
     )
     dle = await replied.download_media()
     title = None

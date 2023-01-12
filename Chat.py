@@ -1,9 +1,9 @@
-# kazu - UserBot
+# Ayra - UserBot
 # Copyright (C) 2021-2022 senpai80
 #
-# This file is a part of < https://github.com/senpai80/kazu/ >
+# This file is a part of < https://github.com/senpai80/Ayra/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/kazu/blob/main/LICENSE/>.
+# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
 
 
 """
@@ -164,13 +164,13 @@ async def _(e):
                 ),
             )
             created_chat_id = r.chats[0].id
-            result = await e.client(
+            reskaz = await e.client(
                 ExportChatInviteRequest(
                     peer=created_chat_id,
                 ),
             )
             await xx.edit(
-                get_string("chats_4").format(group_name, reskazu.link),
+                get_string("chats_4").format(group_name, reskaz.link),
                 link_preview=False,
             )
         except Exception as ex:
@@ -188,9 +188,9 @@ async def _(e):
             created_chat_id = r.chats[0].id
             if username:
                 await e.client(UpdateUsernameRequest(created_chat_id, username))
-                result = f"https://t.me/{username}"
+                reskaz = f"https://t.me/{username}"
             else:
-                result = (
+                reskaz = (
                     await e.client(
                         ExportChatInviteRequest(
                             peer=created_chat_id,
@@ -198,7 +198,7 @@ async def _(e):
                     )
                 ).link
             await xx.edit(
-                get_string("chats_6").format(f"[{group_name}]({result})"),
+                get_string("chats_6").format(f"[{group_name}]({reskaz})"),
                 link_preview=False,
             )
         except Exception as ex:
@@ -211,24 +211,24 @@ async def _(e):
 @kazu_cmd(
     pattern="setgpic( (.*)|$)", admins_only=True, manager=True, require="change_info"
 )
-async def _(ult):
-    if not kazu.is_reply:
-        return await kazu.eor("`Balas ke Media..`", time=5)
-    match = kazu.pattern_match.group(1).strip()
-    if not kazu.client._bot and match:
+async def _(kaz):
+    if not kaz.is_reply:
+        return await kaz.eor("`Balas ke Media..`", time=5)
+    match = kaz.pattern_match.group(1).strip()
+    if not kaz.client._bot and match:
         try:
-            chat = await kazu.client.parse_id(match)
+            chat = await kaz.client.parse_id(match)
         except Exception as ok:
-            return await kazu.eor(str(ok))
+            return await kaz.eor(str(ok))
     else:
-        chat = kazu.chat_id
-    reply = await kazu.get_reply_message()
+        chat = kaz.chat_id
+    reply = await kaz.get_reply_message()
     if reply.photo or reply.sticker or reply.video:
         replfile = await reply.download_media()
     elif reply.document and reply.document.thumbs:
         replfile = await reply.download_media(thumb=-1)
     else:
-        return await kazu.eor("Membalas Foto atau Video..")
+        return await kaz.eor("Membalas Foto atau Video..")
     mediain = mediainfo(reply.media)
     if "animated" in mediain:
         replfile = await con.convert(replfile, convert_to="mp4")
@@ -236,31 +236,31 @@ async def _(ult):
         replfile = await con.convert(
             replfile, outname="chatphoto", allowed_formats=["jpg", "png", "mp4"]
         )
-    file = await kazu.client.upload_file(replfile)
+    file = await kaz.client.upload_file(replfile)
     try:
         if "pic" not in mediain:
             file = types.InputChatUploadedPhoto(video=file)
-        await kazu.client(EditPhotoRequest(chat, file))
-        await kazu.eor("`Foto Grup Berhasil Diubah !`", time=5)
+        await kaz.client(EditPhotoRequest(chat, file))
+        await kaz.eor("`Foto Grup Berhasil Diubah !`", time=5)
     except Exception as ex:
-        await kazu.eor(f"Terjadi kesalahan.\n`{str(ex)}`", time=5)
+        await kaz.eor(f"Terjadi kesalahan.\n`{str(ex)}`", time=5)
     os.remove(replfile)
 
 
 @kazu_cmd(
     pattern="delgpic( (.*)|$)", admins_only=True, manager=True, require="change_info"
 )
-async def _(ult):
-    match = kazu.pattern_match.group(1).strip()
-    chat = kazu.chat_id
-    if not kazu.client._bot and match:
+async def _(kaz):
+    match = kaz.pattern_match.group(1).strip()
+    chat = kaz.chat_id
+    if not kaz.client._bot and match:
         chat = match
     try:
-        await kazu.client(EditPhotoRequest(chat, types.InputChatPhotoEmpty()))
+        await kaz.client(EditPhotoRequest(chat, types.InputChatPhotoEmpty()))
         text = "`Foto Obrolan Dihapus..`"
     except Exception as E:
         text = str(E)
-    return await kazu.eor(text, time=5)
+    return await kaz.eor(text, time=5)
 
 
 @kazu_cmd(pattern="unbanall$", manager=True, admins_only=True, require="ban_users")

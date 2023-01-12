@@ -1,9 +1,9 @@
-# kazu - UserBot
+# Ayra - UserBot
 # Copyright (C) 2021-2022 senpai80
 #
-# This file is a part of < https://github.com/senpai80/kazu/ >
+# This file is a part of < https://github.com/senpai80/Ayra/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/kazu/blob/main/LICENSE/>.
+# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
 """
 ◈ Perintah Tersedia
 
@@ -43,14 +43,14 @@ async def igif(e):
     xx = await e.eor(get_string("com_1"))
     z = await a.download_media()
     if match == "bw":
-        cmd = f'ffmpeg -i "{z}" -vf format=gray kazu.gif -y'
+        cmd = f'ffmpeg -i "{z}" -vf format=gray ayra.gif -y'
     else:
-        cmd = f'ffmpeg -i "{z}" -vf lutyuv="y=negval:u=negval:v=negval" kazu.gif -y'
+        cmd = f'ffmpeg -i "{z}" -vf lutyuv="y=negval:u=negval:v=negval" ayra.gif -y'
     try:
         await bash(cmd)
-        await e.client.send_file(e.chat_id, "kazu.gif", supports_streaming=True)
+        await e.client.send_file(e.chat_id, "ayra.gif", supports_streaming=True)
         os.remove(z)
-        os.remove("kazu.gif")
+        os.remove("ayra.gif")
         await xx.delete()
     except Exception as er:
         LOGS.info(er)
@@ -71,8 +71,8 @@ async def reverse_gif(event):
 
 
 @kazu_cmd(pattern="gif( (.*)|$)")
-async def gifs(kazu):
-    get = kazu.pattern_match.group(1).strip()
+async def gifs(ayra):
+    get = ayra.pattern_match.group(1).strip()
     xx = random.randint(0, 5)
     n = 0
     if ";" in get:
@@ -81,17 +81,17 @@ async def gifs(kazu):
         except IndexError:
             pass
     if not get:
-        return await kazu.eor(f"`{HNDLR}gif <query>`")
-    m = await kazu.eor(get_string("com_2"))
-    gifs = await kazu.client.inline_query("gif", get)
+        return await ayra.eor(f"`{HNDLR}gif <query>`")
+    m = await ayra.eor(get_string("com_2"))
+    gifs = await ayra.client.inline_query("gif", get)
     if not n:
         await gifs[xx].click(
-            kazu.chat_id, reply_to=kazu.reply_to_msg_id, silent=True, hide_via=True
+            ayra.chat_id, reply_to=ayra.reply_to_msg_id, silent=True, hide_via=True
         )
     else:
         for x in range(n):
             await gifs[x].click(
-                kazu.chat_id, reply_to=kazu.reply_to_msg_id, silent=True, hide_via=True
+                ayra.chat_id, reply_to=ayra.reply_to_msg_id, silent=True, hide_via=True
             )
     await m.delete()
 
@@ -110,7 +110,7 @@ async def vtogif(e):
     if int(dur) < 120:
         z = await a.download_media()
         await bash(
-            f'ffmpeg -i {z} -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 kazu.gif -y'
+            f'ffmpeg -i {z} -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 ayra.gif -y'
         )
     else:
         filename = a.file.name
@@ -119,10 +119,10 @@ async def vtogif(e):
         vid = await downloader(filename, a.media.document, xx, tt, get_string("com_5"))
         z = vid.name
         await bash(
-            f'ffmpeg -ss 3 -t 100 -i {z} -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 kazu.gif'
+            f'ffmpeg -ss 3 -t 100 -i {z} -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 ayra.gif'
         )
 
-    await e.client.send_file(e.chat_id, "kazu.gif", support_stream=True)
+    await e.client.send_file(e.chat_id, "ayra.gif", support_stream=True)
     os.remove(z)
-    os.remove("kazu.gif")
+    os.remove("ayra.gif")
     await xx.delete()
