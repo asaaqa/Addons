@@ -20,7 +20,7 @@
 import glob
 import os
 
-from kazu.fns.tools import set_attributes
+from Kazu.fns.tools import set_attributes
 
 from . import (
     KazuConfig,

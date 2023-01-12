@@ -57,7 +57,7 @@ from telethon.tl.types import (
     DocumentAttributeVideo,
 )
 
-from kazu.fns.tools import metadata, translate
+from Kazu.fns.tools import metadata, translate
 
 from . import (
     HNDLR,

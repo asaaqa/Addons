@@ -62,9 +62,9 @@ try:
 except ImportError:
     Image = None
 
-from kazu._misc._assistant import asst_cmd
-from kazu.dB.gban_mute_db import is_gbanned
-from kazu.fns.tools import get_chat_and_msgid
+from Kazu._misc._assistant import asst_cmd
+from Kazu.dB.gban_mute_db import is_gbanned
+from Kazu.fns.tools import get_chat_and_msgid
 
 try:
     from telegraph import upload_file as uf

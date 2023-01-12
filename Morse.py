@@ -15,7 +15,7 @@
 """
 
 from . import get_string, kazu_cmd
-from kazu.fns.tools import async_searcher
+from Kazu.fns.tools import async_searcher
 
 
 @kazu_cmd(pattern="mcode ?(.*)")

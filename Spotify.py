@@ -16,7 +16,7 @@ import os
 from uuid import uuid4
 
 from telethon.tl.types import DocumentAttributeAudio
-from kazu.fns.tools import metadata
+from Kazu.fns.tools import metadata
 
 from . import *
 
