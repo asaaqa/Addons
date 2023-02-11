@@ -13,6 +13,14 @@
 #            Jangan Hapus Credit Ngentod
 # ========================×========================
 
+"""
+✘ Perintah yang Tersedia -
+"Kazu": f"**Modul : **`ᴋᴀᴢᴜ ғᴏɴᴛ`\
+        \n\n  »  **Perintah :** `{i}font` `<nama font>` `<teks/balas ke pesan>`\
+        \n  »  **Kegunaan : **Membuat Text dengan Fonts Style.\
+        \n\n  »  **Perintah :** `{i}lf`\
+        \n  »  **Kegunaan : **Untuk Melihat Daftar Font.\
+"""
 
 from . import *
 
