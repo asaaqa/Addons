@@ -252,9 +252,7 @@ async def _(kaz):
 )
 async def _(kaz):
     match = kaz.pattern_match.group(1).strip()
-    chat = kaz.chat_id
-    if not kaz.client._bot and match:
-        chat = match
+    chat = match if not kaz.client._bot and match else kaz.chat_id
     try:
         await kaz.client(EditPhotoRequest(chat, types.InputChatPhotoEmpty()))
         text = "`Foto Obrolan Dihapus..`"
