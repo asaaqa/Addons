@@ -1,3 +1,4 @@
+""" 
 # Ayra - UserBot
 # Copyright (C) 2021-2022 senpai80
 #
@@ -35,6 +36,8 @@ from telethon.tl.types import (
     User,
 )
 from telethon.utils import get_peer_id
+"""
+"""
 try:
     import cv2
 except ImportError:
@@ -116,3 +119,4 @@ async def pencuri(event):
              caption="Pap nya...")
     except Exception as e:
         print(
+"""
